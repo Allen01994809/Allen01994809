@@ -1,0 +1,21 @@
+
+.fade {
+  &-enter {
+    position: fixed;
+
+    &-done {
+      position: initial;
+    }
+  }
+
+  &-exit {
+    position: fixed;
+    transition: opacity 200ms ease-in;
+    opacity: 1;
+    z-index: 1;
+
+    &-active {
+      opacity: 0;
+    }
+  }
+}
