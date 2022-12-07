@@ -1,7 +1,9 @@
+/** @format */
+
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import is from "../../utils/is";
-import * as THREE from 'three';
-import styles from './ImageQuantization.module.scss';
+import * as THREE from "three";
+import styles from "./ImageQuantization.module.scss";
 import { useRafLoop, useWindowSize } from "react-use";
 import { useShader } from "./useShader";
 
@@ -21,7 +23,7 @@ const ImageQuantization = () => {
     vertexShader: vertexShader,
     fog: true,
   });
-  updateUniform('', [0]);
+  updateUniform("", [0]);
 
   useEffect(() => {
     if (is.null(refCanvas.current)) return;
@@ -73,21 +75,24 @@ const ImageQuantization = () => {
   const knot = useMemo(() => {
     const meshKnot = new THREE.Mesh(
       new THREE.TorusKnotGeometry(3, 1, 100, 16),
-      new THREE.MeshStandardMaterial({ color: 0xaa0000, roughness: 0.0 })
+      new THREE.MeshStandardMaterial({ color: 0xaa0000, roughness: 0.0 }),
     );
     meshKnot.position.set(0, 5, 0);
     scene.add(meshKnot);
     return meshKnot;
   }, [scene]);
 
-  const render = useCallback((time: number) => {
-    if (is.null(renderer)) return;
-    knot.position.setX(Math.sin(time / 1000) * 10);
-    knot.position.setZ(Math.cos(time / 1000) * 10);
-    knot.rotation.set(0, Math.sin(time / 1000), Math.cos(time / 1000))
-    camera.lookAt(knot.position);
-    renderer.render(scene, camera);
-  }, [renderer, scene, camera])
+  const render = useCallback(
+    (time: number) => {
+      if (is.null(renderer)) return;
+      knot.position.setX(Math.sin(time / 1000) * 10);
+      knot.position.setZ(Math.cos(time / 1000) * 10);
+      knot.rotation.set(0, Math.sin(time / 1000), Math.cos(time / 1000));
+      camera.lookAt(knot.position);
+      renderer.render(scene, camera);
+    },
+    [renderer, scene, camera],
+  );
 
   useRafLoop(render);
 
@@ -99,4 +104,3 @@ const ImageQuantization = () => {
 };
 
 export default ImageQuantization;
-

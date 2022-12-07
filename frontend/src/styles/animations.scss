@@ -1,3 +1,5 @@
+/** @format */
+
 .fade {
   &-enter {
     position: fixed;
@@ -27,7 +29,7 @@
     opacity: 0;
 
     &-active {
-      transform: scale(1.0);
+      transform: scale(1);
       transition-delay: 100ms;
       transition-duration: 200ms;
       opacity: 1;
@@ -42,7 +44,7 @@
     position: initial;
     transition-duration: 100ms;
     opacity: 1;
-    transform: scale(1.0);
+    transform: scale(1);
     z-index: 1;
 
     &-active {
@@ -82,4 +84,3 @@
     }
   }
 }
-

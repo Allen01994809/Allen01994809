@@ -1,1 +1,3 @@
-declare module '*.scss';
+/** @format */
+
+declare module "*.scss";

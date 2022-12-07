@@ -1,32 +1,34 @@
-import { Outlet, RouteObject } from 'react-router';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+/** @format */
+
+import { Outlet, RouteObject } from "react-router";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useLocation } from "react-router";
-import { Link } from 'react-router-dom';
-import ImageQuantization from '../components/ImageQuantization/ImageQuantization';
+import { Link } from "react-router-dom";
+import ImageQuantization from "../components/ImageQuantization/ImageQuantization";
 
 const indexRouteObject: RouteObject[] = [
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
-        element: <div style={{ width: '100vw', height: '100vh', background: '#ff0' }}>index</div>
+        path: "/",
+        element: <div style={{ width: "100vw", height: "100vh", background: "#ff0" }}>index</div>,
       },
       {
-        path: '/hoge',
-        element: <div style={{ width: '100vw', height: '100vh', background: '#0aa' }}>hoge</div>
+        path: "/hoge",
+        element: <div style={{ width: "100vw", height: "100vh", background: "#0aa" }}>hoge</div>,
       },
       {
-        path: '/fuga',
-        element: <ImageQuantization />
-      }
+        path: "/fuga",
+        element: <ImageQuantization />,
+      },
     ],
   },
 ];
 
 // TODO: ここら辺を外出ししたい。
-function App (){
+function App() {
   const location = useLocation();
 
   return (
@@ -41,20 +43,16 @@ function App (){
         </ul>
       </nav>
       <TransitionGroup>
-        <CSSTransition
-          key={location.pathname}
-          classNames="scale"
-          timeout={300}
-          unmountOnExit>
+        <CSSTransition key={location.pathname} classNames="scale" timeout={300} unmountOnExit>
           {() => (
-            <div><Outlet /></div>
+            <div>
+              <Outlet />
+            </div>
           )}
         </CSSTransition>
       </TransitionGroup>
     </div>
   );
-};
-
+}
 
 export default indexRouteObject;
-
