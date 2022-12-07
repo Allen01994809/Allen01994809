@@ -32,7 +32,7 @@ const ImageQuantization = () => {
       antialias: true,
     });
     setRenderer(renderer);
-  }, [refCanvas.current]);
+  }, [refCanvas]);
 
   useEffect(() => {
     if (is.null(renderer)) return;
@@ -91,7 +91,7 @@ const ImageQuantization = () => {
       camera.lookAt(knot.position);
       renderer.render(scene, camera);
     },
-    [renderer, scene, camera],
+    [renderer, scene, camera, knot],
   );
 
   useRafLoop(render);
