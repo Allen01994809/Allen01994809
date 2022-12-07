@@ -5,8 +5,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint:js": "eslint 'src/**/**.{ts,tsx,js,jsx,vue}'",
     "lint:css": "stylelint src/**/**.scss",
-    "fix:js": "prettier --write . '!**/*.{js,jsx,vue}'"
+    "fix:js": "prettier --write . '!**/*.{ts,tsx,js,jsx,vue}'"
   },
   "volta": {
     "node": "18.12.1"
