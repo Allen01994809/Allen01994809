@@ -1,5 +1,3 @@
 module.exports = {
-  "extends": [
-    "@allen-packages/eslint-config-typescript-react"
-  ]
-}
+  extends: ["@allen-packages/eslint-config-typescript-react"],
+};
