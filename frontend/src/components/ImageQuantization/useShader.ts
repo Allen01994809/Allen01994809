@@ -13,7 +13,10 @@ export type UseShaderProps = {
 
 export type UseShaderReturnType = [
   THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>,
-  (key: string, initialValue: number | number[]) => (value: number | number[]) => void,
+  (
+    key: string,
+    initialValue: number | number[]
+  ) => (value: number | number[]) => void
 ];
 
 export const useShader = (props: UseShaderProps): UseShaderReturnType => {
@@ -31,7 +34,7 @@ export const useShader = (props: UseShaderProps): UseShaderReturnType => {
         depthTest: true,
         // depthWrite: true,
       }),
-    [],
+    []
   );
 
   useEffect(() => {
@@ -58,7 +61,7 @@ export const useShader = (props: UseShaderProps): UseShaderReturnType => {
       };
       return updateUniform;
     },
-    [material],
+    [material]
   );
 
   return [mesh, registerUniform];

@@ -58,7 +58,7 @@ const ImageQuantization = () => {
   useMemo(() => {
     const meshFloor = new THREE.Mesh(
       new THREE.BoxGeometry(2000, 0.1, 2000),
-      new THREE.MeshStandardMaterial({ color: 0x808080, roughness: 0.0 }),
+      new THREE.MeshStandardMaterial({ color: 0x808080, roughness: 0.0 })
     );
     scene.add(meshFloor);
     return meshFloor;
@@ -75,7 +75,7 @@ const ImageQuantization = () => {
   const knot = useMemo(() => {
     const meshKnot = new THREE.Mesh(
       new THREE.TorusKnotGeometry(3, 1, 100, 16),
-      new THREE.MeshStandardMaterial({ color: 0xaa0000, roughness: 0.0 }),
+      new THREE.MeshStandardMaterial({ color: 0xaa0000, roughness: 0.0 })
     );
     meshKnot.position.set(0, 5, 0);
     scene.add(meshKnot);
@@ -91,7 +91,7 @@ const ImageQuantization = () => {
       camera.lookAt(knot.position);
       renderer.render(scene, camera);
     },
-    [renderer, scene, camera, knot],
+    [renderer, scene, camera, knot]
   );
 
   useRafLoop(render);

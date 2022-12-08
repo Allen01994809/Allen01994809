@@ -22,4 +22,6 @@ if (is.null(element)) {
 
 const rootElement = ReactDOM.createRoot(element);
 
-rootElement.render(applyMiddleware(<RouterProvider router={router} />, ...middlewares));
+rootElement.render(
+  applyMiddleware(<RouterProvider router={router} />, ...middlewares)
+);

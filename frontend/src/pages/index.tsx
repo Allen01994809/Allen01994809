@@ -13,11 +13,19 @@ const indexRouteObject: RouteObject[] = [
     children: [
       {
         path: "/",
-        element: <div style={{ width: "100vw", height: "100vh", background: "#ff0" }}>index</div>,
+        element: (
+          <div style={{ width: "100vw", height: "100vh", background: "#ff0" }}>
+            index
+          </div>
+        ),
       },
       {
         path: "/hoge",
-        element: <div style={{ width: "100vw", height: "100vh", background: "#0aa" }}>hoge</div>,
+        element: (
+          <div style={{ width: "100vw", height: "100vh", background: "#0aa" }}>
+            hoge
+          </div>
+        ),
       },
       {
         path: "/fuga",
@@ -43,7 +51,12 @@ function App() {
         </ul>
       </nav>
       <TransitionGroup>
-        <CSSTransition key={location.pathname} classNames="scale" timeout={300} unmountOnExit>
+        <CSSTransition
+          key={location.pathname}
+          classNames="scale"
+          timeout={300}
+          unmountOnExit
+        >
           {() => (
             <div>
               <Outlet />
